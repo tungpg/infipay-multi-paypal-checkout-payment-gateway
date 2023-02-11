@@ -1,6 +1,6 @@
 <?php
 /* @wordpress-plugin
- * Plugin Name:       WooCommerce Multi Paypal Payment Gateway
+ * Plugin Name:       Infipay Multi Paypal Checkout Payment Gateway
  * Description:       The plugin allows the use of multiple Paypal accounts in the same shop.
  * Version:           1.0.0
  * WC requires at least: 3.0

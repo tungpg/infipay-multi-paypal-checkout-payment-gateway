@@ -6,7 +6,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 
 	public function __construct(){
 		$this->id = 'multi_paypal_checkout_payment';
-		$this->method_title = __('Multi Paypal Payment','infipay-multi-paypal-checkout-payment-gateway');
+		$this->method_title = __('Infipay Multi Paypal Checkout Payment','infipay-multi-paypal-checkout-payment-gateway');
 		//$this->title = __('Multi Paypal Payment','infipay-multi-paypal-checkout-payment-gateway');
 		$this->has_fields = true;
 		$this->init_form_fields();
