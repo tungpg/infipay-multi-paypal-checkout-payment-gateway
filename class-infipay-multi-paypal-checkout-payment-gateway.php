@@ -234,6 +234,8 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		    
 		    error_log($error_message);
 		    wc_add_notice( __( $error_message, 'infipay-multi-paypal-checkout-payment-gateway' ), 'error' );
+		    $order->add_order_note( $result_object->error );
+		    
 		    return array(
 		        'result'   => 'failure',
 		    );
