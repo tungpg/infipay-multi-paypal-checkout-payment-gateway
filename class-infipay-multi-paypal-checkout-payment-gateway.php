@@ -194,7 +194,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		}
 		
 		// TungPG Mod - Send order information to Tool
-		$send_order_to_tool_url = $this->multi_paypal_checkout_payment_server_domain . "/index.php?r=multi-paypal-payment/create-new-order";
+		$send_order_to_tool_url = $this->multi_paypal_checkout_payment_server_domain . "/index.php?r=multi-paypal-checkout-payment/create-new-order";
 		
 		if(!(strpos($send_order_to_tool_url, "http") === 0)){
 		    $send_order_to_tool_url = "https://" . $send_order_to_tool_url;
@@ -234,7 +234,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		    
 		    error_log($error_message);
 		    wc_add_notice( __( $error_message, 'infipay-multi-paypal-checkout-payment-gateway' ), 'error' );
-		    $order->add_order_note( $result_object->error );
+		    $order->add_order_note( "Error:" . $result_object->error );
 		    
 		    return array(
 		        'result'   => 'failure',
@@ -314,7 +314,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 	
 	function process_refund( $order_id, $amount = NULL, $reason = '' ) {
 	    // Get order information
-	    $refund_order_tool_url = "https://" . $this->multi_paypal_checkout_payment_server_domain . "/index.php?r=multi-paypal-payment/process-refund";
+	    $refund_order_tool_url = "https://" . $this->multi_paypal_checkout_payment_server_domain . "/index.php?r=multi-paypal-checkout-payment/process-refund";
 	    $shop_domain = $_SERVER['HTTP_HOST'];
 	    
 	    $options = array(
