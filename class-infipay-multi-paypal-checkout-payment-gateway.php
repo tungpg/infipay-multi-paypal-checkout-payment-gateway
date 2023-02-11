@@ -201,7 +201,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		}
 		
 		// Add note to order - tool name
-		$note = __("multi-paypal-payment-gateway");
+		$note = __("infipay-multi-paypal-checkout-payment-gateway");
 		$order->add_order_note( $note );
 		
 		// Get buyer ip address
@@ -229,7 +229,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		if(isset($result_object->error)){
 		    $error_message = $result_object->error;
 		    if(empty($result_object->show_error_to_buyer)){
-		        $error_message = "Sorry, an error occurred while trying to process your payment. Please try again.";
+		        $error_message = "Sorry, an error occurred while trying to process your payment. Please try again. (1)";
 		    }
 		    
 		    error_log($error_message);
@@ -274,7 +274,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		if(isset($result_object->error)){
 		    $error_message = $result_object->error;
 		    if(empty($result_object->show_error_to_buyer)){
-		        $error_message = "Sorry, an error occurred while trying to process your payment. Please try again.";
+		        $error_message = "Sorry, an error occurred while trying to process your payment. Please try again. (2)";
 		    }
 		    
 		    error_log($error_message);
@@ -286,7 +286,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		
 		if(!isset($result_object->approval_url)){
 		    error_log("Could get Paypal Approval URL!");
-		    wc_add_notice( __( "Sorry, an error occurred while trying to process your payment. Please try again.", 'infipay-multi-paypal-checkout-payment-gateway' ), 'error' );
+		    wc_add_notice( __( "Sorry, an error occurred while trying to process your payment. Please try again. (3)", 'infipay-multi-paypal-checkout-payment-gateway' ), 'error' );
 		    return array(
 		        'result'   => 'failure',
 		    );
@@ -341,7 +341,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 	        // Take note to order
 	        $order = wc_get_order( $order_id );
 	        
-	        $note = __("multi-paypal-payment-gateway<br/>Refunded: " . wc_price($amount) . ".");
+	        $note = __("infipay-multi-paypal-checkout-payment-gateway<br/>Refunded: " . wc_price($amount) . ".");
 	        $order->add_order_note( $note );
 	        
 	        return true;
