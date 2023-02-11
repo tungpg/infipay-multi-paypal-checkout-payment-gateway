@@ -248,7 +248,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		$app_order_id = $result_object->app_order_id;
 		
 		// Call to paypal shop to get the paypal redirect url
-		$paypal_shop_payment_request_url = "https://" . $payment_shop_domain . "/icheckout/?infipay-paypal-checkout=request-payment";
+		$paypal_shop_payment_request_url = "https://" . $payment_shop_domain . "/icheckout/?paypal-checkout=request-payment";
 		
 		$options = array(
 		    'http' => array(
@@ -296,7 +296,7 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		//$woocommerce->cart->empty_cart();
 		
 		// Redirect user to paypal approval page
-		$redirect_url = "https://" . $payment_shop_domain . "/icheckout/?infipay-paypal-checkout=pay&redirect_url=" . urlencode($result_object->approval_url);
+		$redirect_url = "https://" . $payment_shop_domain . "/icheckout/?paypal-checkout=pay&redirect_url=" . urlencode($result_object->approval_url);
 		return array(
 			'result' => 'success',
 		    'redirect' => $redirect_url
