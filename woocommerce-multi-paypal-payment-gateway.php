@@ -12,6 +12,18 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
+require plugin_dir_path(__FILE__) . '/plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/tungpg/infipay-multi-paypal-checkout-payment-gateway/',
+    __FILE__,
+    'infipay-multi-paypal-checkout-payment-gateway'
+    );
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
 $active_plugins = apply_filters('active_plugins', get_option('active_plugins'));
 if(wpruby_custom_payment_is_woocommerce_active()){
 	add_filter('woocommerce_payment_gateways', 'add_multi_paypal_checkout_payment_gateway');
