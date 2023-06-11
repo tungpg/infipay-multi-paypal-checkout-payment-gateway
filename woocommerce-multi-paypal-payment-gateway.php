@@ -2,7 +2,7 @@
 /* @wordpress-plugin
  * Plugin Name:       Infipay Multi Paypal Checkout Payment Gateway
  * Description:       The plugin allows the use of multiple Paypal accounts in the same shop.
- * Version:           1.0.0
+ * Version:           1.0.1
  * WC requires at least: 3.0
  * WC tested up to: 5.2
  * Author:            TungPG
