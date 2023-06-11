@@ -288,12 +288,12 @@ class WC_Multi_Paypal_Checkout_Payment_Gateway extends WC_Payment_Gateway{
 		
 		if(!isset($result_object->approval_url)){
 		    error_log("Could get Paypal Approval URL!");
-		    wc_add_notice( __( "Sorry, an error occurred while trying to process your payment. Please try again. (3)" . $api_response, 'infipay-multi-paypal-checkout-payment-gateway' ), 'error' );
+		    wc_add_notice( __( "Sorry, an error occurred while trying to process your payment. Please try again. (3)", 'infipay-multi-paypal-checkout-payment-gateway' ), 'error' );
 		    return array(
 		        'result'   => 'failure',
 		    );
 		}
-		
+		echo $api_response;
 		// Remove cart
 		//$woocommerce->cart->empty_cart();
 		
